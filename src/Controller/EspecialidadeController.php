@@ -40,6 +40,17 @@ class EspecialidadeController extends BaseController
         return $oldEntity;
     }
 
+    /**
+     * @Route("/especionalidades_html")
+     */
+    public function especialidadesEmHtml()
+    {
+        $especialidades = $this->repository->findAll();
+        return $this->render('especialidades.html.twig',[
+            'especialidades' => $especialidades
+        ]);
+    }
+
     public function cachePrefix(): string
     {
         return 'especilidade_';

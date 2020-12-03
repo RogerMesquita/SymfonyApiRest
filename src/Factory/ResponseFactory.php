@@ -5,6 +5,7 @@ namespace App\Factory;
 
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ResponseFactory
 {
@@ -58,7 +59,7 @@ class ResponseFactory
 
     public static function fromError(\Throwable $erro)
     {
-        return new self(['mensagem' => $erro->getMessage()], false, Response::HTTP_INTERNAL_SERVER_ERROR, null);
+        return new self(true,['mensagem' => $erro->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
 }
